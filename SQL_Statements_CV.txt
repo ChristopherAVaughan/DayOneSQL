@@ -1,0 +1,156 @@
+Query The Data
+
+1. SELECT all teachers:
+
+SELECT `teacher`.`teacher_id`,
+
+    `teacher`.`teacher_first_name`,
+
+    `teacher`.`teacher_last_name`,
+
+    `teacher`.`teacher_age`,
+
+    `teacher`.`salary`
+
+FROM `dayonesql`.`teacher`;
+
+2. SELECT all classes:
+
+
+SELECT `class`.`class_id`,
+
+    `class`.`class_name`,
+
+    `class`.`class_description`,
+
+    `class`.`teacher_id`
+
+FROM `dayonesql`.`class`;
+
+
+3. SELECT all students:
+
+SELECT `student`.`student_id`,
+
+    `student`.`first_name`,
+
+    `student`.`last_name`,
+
+    `student`.`grade`,
+
+    `student`.`gpa`
+
+FROM `dayonesql`.`student`;
+
+
+4. SELECT all classes for teacher 1:
+
+SELECT `class`.`class_id`,
+
+    `class`.`class_name`,
+    `class`.`class_description`,
+
+    `class`.`teacher_id`
+
+FROM `dayonesql`.`class`
+
+WHERE `teacher_id` = 1;
+
+
+5. SELECT all students for class 1 (used my lowest course #):
+
+SELECT `class_student`.`class_student_id`,
+
+    `class_student`.`class_id`,
+
+    `class_student`.`student_id`
+
+FROM `dayonesql`.`class_student`
+
+WHERE `class_id` = 100;
+
+
+
+6. SELECT all classes for student 1:
+
+SELECT `class_student`.`class_student_id`,
+
+    `class_student`.`class_id`,
+
+    `class_student`.`student_id`
+
+FROM `dayonesql`.`class_student`
+
+WHERE `student_id` = 1;
+
+
+7. SELECT all students who's first name starts with a (none began with an "a", thus I used "b":
+
+SELECT `student`.`student_id`,
+
+    `student`.`first_name`,
+
+    `student`.`last_name`,
+
+    `student`.`grade`,
+
+    `student`.`gpa`
+
+FROM `dayonesql`.`student`
+
+WHERE `first_name` LIKE 'B%';
+
+________________________________________
+
+Update Data
+
+1. UPDATE teacher 1's name to Superman:
+
+UPDATE `dayonesql`.`teacher`
+
+SET
+
+`teacher_first_name` = 'Superman'
+
+WHERE `teacher_id` = '1';
+
+
+
+2. Update class 1's name to Underwater Basket Weaving:
+
+UPDATE `dayonesql`.`class`
+
+SET
+
+`class_name` = 'Underwater Basket Weaving'
+
+WHERE `class_id` = 100;
+
+
+
+3. Update Student 1's name to Wonder Woman:
+
+UPDATE `dayonesql`.`student`
+
+SET
+
+`first_name` = 'Wonder',
+
+`last_name` = 'Woman'
+
+WHERE `student_id` = 1;
+____________________________________________
+
+Delete Data
+
+1. DELETE student 10:
+
+DELETE FROM `dayonesql`.`student`
+
+WHERE `student_id` = 10;
+
+
+
+
+
+
